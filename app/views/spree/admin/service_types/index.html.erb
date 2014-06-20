@@ -1,0 +1,47 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:service_types) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li id="new_service_type_link">
+    <%= button_link_to Spree.t(:new_service_type), spree.new_admin_service_type_path, :icon => 'plus' %>
+  </li>
+<% end %>
+
+<%= render 'spree/admin/shared/product_sub_menu' %>
+
+<%= image_tag 'select2-spinner.gif', :plugin => 'spree', :style => 'display: none', :id => 'busy_indicator' %>
+
+<%# Placeholder for new service type form %>
+<div id="new_service_type"></div>
+
+<% if @service_types.any? %>
+<table class="index" id='listing_service_types' data-hook>
+  <colgroup>
+    <col style="width: 90%">
+    <col style="width: 10%">
+  </colgroup>
+  <thead>
+    <tr data-hook="service_types_header">
+      <th><%= Spree.t(:name) %></th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @service_types.each do |service_type| %>
+      <tr id="<%= spree_dom_id service_type %>" data-hook="service_types_row" class="<%= cycle('odd', 'even')%>">
+        <td style="padding-left:1em"><%= service_type.name %></td>
+        <td class="actions">
+          <%= link_to_edit(service_type, :no_text => true, :class => 'admin_edit_service_type') %>
+          <%= link_to_delete(service_type, :no_text => true) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+  <div class="alpha twelve columns no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/service_type')) %>,
+    <%= link_to Spree.t(:add_one), spree.new_admin_service_type_path %>!
+  </div>
+<% end %>

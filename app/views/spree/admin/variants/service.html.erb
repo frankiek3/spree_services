@@ -1,0 +1,21 @@
+<%= render 'spree/admin/shared/product_sub_menu' %>
+<%= render :partial => 'spree/admin/shared/product_tabs', :locals => {:current => "Service"} %>
+<%= render "spree/shared/error_messages", :target => @variant %>
+
+<%= form_for(@variant, :url => admin_product_variant_path(@product, @variant), :html => { :method => :put }) do |f| %>
+  <h3><%= t("Service") %></h3>
+
+  <div class='row'>
+    <div class="alpha four columns">
+      <%= f.field_container :service do %>
+        <%= f.label :service_type_id, Spree.t(:service_types) %><br />
+        <%= f.collection_select(:service_id, Spree::ServiceType.all, :id, :name, {:include_blank => ""}, { :class => 'select2 fullwidth' }) %>
+      <% end %>
+    </div>
+  </div>
+  <br/>
+
+<div class="form-buttons filter-actions actions" data-hook="buttons">
+  <%= button Spree.t('actions.update'), 'refresh' %>
+</div>
+<% end %>

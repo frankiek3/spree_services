@@ -1,0 +1,21 @@
+<% if variant && variant.service.present? && line_item.variant.service.limit == 1 %>
+        <span class="out-of-stock">
+          <%= t("Service not yet Offered") %>
+        </span>
+        <br/>
+<% end %>
+
+<% if variant && variant.service.present? && line_item.variant.service.limit == 2 %>
+        <span class="out-of-stock">
+          <%= t("Only "+variant.service.limit_amount.to_s+" item allowed per order") %>
+        </span>
+        <br/>
+<% end %>
+
+<% if variant && variant.service.present? && line_item.variant.service.limit == 3 %>
+        <span class="out-of-stock">
+          <%= t("Only "+variant.service.limit_amount.to_s+" item(s) allowed per account") %>
+        </span>
+        <br/>
+<% end %>
+

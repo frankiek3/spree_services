@@ -1,0 +1,59 @@
+en:
+  add_volume_price: Add Volume Price
+  position: Position
+  discount_type: Discount Type
+  range: Range
+  volume_prices: Volume Prices
+  volume_pricing: Volume Pricing
+  amount: Amount
+  name: Name
+  action: Action
+  remove: Remove
+  total_price: Total Price
+  price_discount: Price Discount
+  percent_discount: Percent Discount
+  activerecord:
+    attributes:
+      spree/service_type:
+        name: Name
+    models:
+      spree/service_type:
+        one: Service Type
+        other: Service Types
+  spree:
+    admin:
+      tab:
+        service_types: Service Types
+    add_service_type: Add Service Type
+    back_to_service_types_list: Back To Service Types List
+    editing_service_type: Editing Service Type
+    new_service_type: New Service Type
+    service_type: Service Type
+    service_types: Service Types
+    select_from_service_type: Select From Service Type
+    limit: Limit
+    limit_amount: Limit Amount
+    service_field: Service Field
+    service_fields: Service Fields
+    add_service_field: Add Service Field
+
+    amount: Amount
+    name: Name
+    action: Action
+    remove: Remove
+    service: Service
+    services: Services
+    service_type: Service Type
+    service_types: Service Types
+    send_email: Send Email
+    add_one: Add One
+
+    controller:
+      controller_name: Services
+    service:
+      service: Service
+      services: Services
+      service_type: Service Type
+      service_types: Service Types
+      send: Send Email
+

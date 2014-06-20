@@ -1,0 +1,11 @@
+<tr class="service_field fields">
+  <td>
+    <%= f.text_field :name, :class => 'fullwidth' %>
+    <%= error_message_on(f.object, :name) %>
+  </td>
+  <td valign="actions">
+    <%= link_to_remove_fields t("remove"), f %>
+<%= link_to_delete service_field, :no_text => true %>
+  </td>
+</tr>
+

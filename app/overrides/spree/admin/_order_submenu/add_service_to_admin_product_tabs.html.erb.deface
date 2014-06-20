@@ -1,0 +1,8 @@
+<!-- insert_bottom "[data-hook='admin_order_tabs']" -->
+<% if can?(:update, @order) && @order.service? %>
+  <li>
+
+  </li>
+<% end %>
+
+<!-- enabled -->
