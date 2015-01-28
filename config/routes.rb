@@ -2,24 +2,24 @@ routes = lambda do
   namespace :admin do
     resources :products do 
        resources :variants do
-        get :service, :on => :member
+        get :service, on: :member
       end
     end
 
     resources :service_types do
-      get :service_fields, :on => :member
-      get :volume_prices, :on => :member
+      get :service_fields, on: :member
+      get :volume_prices, on: :member
       collection do
         post :update_volume_price_positions
       end
     end
 
     resources :orders do
-      get :notify_customer, :on => :member
+      get :notify_customer, on: :member
     end
 
-    delete '/service_fields/:id', :to => "service_fields#destroy", :as => :service_field
-    delete '/volume_prices/:id', :to => "volume_prices#destroy", :as => :volume_price
+    delete '/service_fields/:id', to: "service_fields#destroy", as: :service_field
+    delete '/volume_prices/:id', to: "volume_prices#destroy", as: :volume_price
   end
 end
 

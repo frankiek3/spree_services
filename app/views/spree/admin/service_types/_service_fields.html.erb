@@ -3,7 +3,7 @@
     <thead>
       <tr>
         <th><%= t("name") %></th>
-        <th class="actions"><%= t("action") %></th>
+        <th class="actions"><%= Spree.t("action") %></th>
       </tr>
     </thead>
     <tbody id="service_fields">
@@ -14,12 +14,12 @@
           <%= error_message_on(sf.object, :name) %>
         </td>
         <td class="actions">
-          <%= link_to_remove_fields Spree.t("remove"), sf, :no_text => true %>
+          <%= link_to_remove_fields Spree.t("remove"), sf, no_text: true %>
         </td>
       </tr>
       <% end %>
     </tbody>
   </table>
-  <%= link_to_add_fields Spree.t("add_service_field"), "tbody#service_fields", {:class => 'button fa fa-plus'} %>
+  <%= link_to_add_fields Spree.t("add_service_field"), "tbody#service_fields", {class: 'button fa fa-plus'} %>
   <br/><br/>
 

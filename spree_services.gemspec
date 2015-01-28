@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_services'
-  s.version     = '2.2.2'
+  s.version     = '2.3.0'
   s.summary     = 'gem summary here'
   s.description = 'Add (optional) gem description here'
   s.authors      = ['', '']
@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 2.3.0.beta'
+  s.add_dependency 'spree_core', '>= 2.3.0'
 
   s.add_development_dependency 'capybara', '~> 2.1'
   s.add_development_dependency 'coffee-rails'

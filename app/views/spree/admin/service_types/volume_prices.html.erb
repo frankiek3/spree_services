@@ -1,8 +1,8 @@
 <%= render 'spree/admin/shared/product_sub_menu' %>
-<%= render :partial => 'spree/admin/shared/product_tabs', :locals => {:current => "Volume Pricing"} %>
-<%= render "spree/shared/error_messages", :target => @variant %>
+<%= render partial: 'spree/admin/shared/product_tabs', locals: {current: "Volume Pricing"} %>
+<%= render partial: "spree/shared/error_messages", locals: { target: @variant } %>
 
-<%= form_for(@variant, :url => admin_product_variant_path(@product, @variant), :html => { :method => :put }) do |f| %>
-  <%= render :partial => 'spree/admin/variants/volume_pricing_edit', :locals => { :f => f } %>
+<%= form_for(@variant, url: admin_product_variant_path(@product, @variant), html: { method: :put }) do |f| %>
+  <%= render partial: 'spree/admin/variants/volume_pricing_edit', locals: { f: f } %>
   <%= render 'spree/admin/shared/edit_resource_links' %>
 <% end %>
