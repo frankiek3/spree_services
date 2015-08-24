@@ -1,8 +1,8 @@
-<!-- insert_bottom "td[data-hook='order_item_description']" -->
+<!-- insert_bottom "td[data-hook='order_item_description']" disabled -->
 <% if @order.state == 'complete' and item.variant.service.present? %>
   <%= content_tag(:p, class: 'download_links') do %>
     <% item.service.service_fields.each do |service_field| %>
     <% end %>
+
   <% end %>
 <% end %>
-<!-- enabled -->

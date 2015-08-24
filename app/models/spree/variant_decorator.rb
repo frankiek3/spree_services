@@ -69,4 +69,7 @@ Spree::Variant.class_eval do
     end
   end
 
+  def service?
+    service.present?
+  end
 end

@@ -6,10 +6,7 @@ $(function () {
     var target = $(this).data("target");
     var new_table_row = $(target + ' tr:first').clone();
     var new_id = new Date().getTime();
-    new_table_row.find("select").each(function () {
-      var el = $(this);
-      new_table_row.find("#s2id_"+el.prop('id')).remove();
-    });
+    new_table_row.find('.select2').select2("destroy");
     new_table_row.find("input, select").each(function () {
       var el = $(this);
       el.val("");

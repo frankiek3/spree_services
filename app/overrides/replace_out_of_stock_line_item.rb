@@ -1,23 +1,20 @@
 Deface::Override.new(:virtual_path => "spree/orders/_line_item",
-                     :name => "replace_out_of_stock_line_item",
-                     :replace => "[class='out-of-stock']",
-                     :partial => "spree/out_of_stock_line_item",
+                     :name => "insert_break_before_line_item_description",
+                     :insert_before => "[data-hook='line_item_description']",
+                     :text => "<br/>",
                      :disabled => false)
+
+Deface::Override.new(:virtual_path => "spree/orders/_line_item",
+                     :name => "move_options_text",
+                     :insert_bottom => "[data-hook='cart_item_description'] > h4",
+                     :cut => "erb:contains('variant.options_text')",
+                     :disabled => true)
 
 Deface::Override.new(:virtual_path => "spree/orders/_line_item",
                      :name => "set_max_quantity_for_line_item",
                      :replace => "erb[loud]:contains('item_form.number_field :quantity')",
                      :text => "<% if variant.service.present? %><%= item_form.number_field :quantity, :min => 0, :class => 'line_item_quantity', :size => 5, :max => variant.service.limit_amount %><% else %><%= item_form.number_field :quantity, :min => 0, :class => 'line_item_quantity', :size => 5 %><% end %>",
                      :disabled => false)
-
-
-#Deface::Override.new(:virtual_path => "spree/orders/_line_item",
-#                     :name => "replace_out_of_stock_line_item",
-#                     :replace => "[class='out-of-stock']",
-#                     :partial => "spree/out_of_stock_line_item",
-#                     :disabled => false)
-
-#id .classname
 
 Deface::Override.new(:virtual_path => "spree/products/_cart_form",
                      :name => "add_volume_pricing_to_product",

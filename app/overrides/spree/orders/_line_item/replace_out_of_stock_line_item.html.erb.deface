@@ -1,0 +1,13 @@
+<!-- replace_contents ".out-of-stock" -->
+<% if variant && variant.service.present? %>
+  <% case line_item.variant.service.limit %>
+  <% when 1 %>
+    <%= t("Service not yet Offered") %>
+  <% when 2 %>
+    <%= t("Only "+variant.service.limit_amount.to_s+" item allowed per order") %>
+  <% when 3 %>
+    <%= t("Only "+variant.service.limit_amount.to_s+" item(s) allowed per account") %>
+  <% end %>
+<% else %>
+  <%= Spree.t(:out_of_stock) %>
+<% end %>

@@ -6,12 +6,12 @@ Spree::Order.class_eval do
   def update_prices
     @price_updated ||= []
     if @price_updated.length < line_items.size
-      line_items.each { |item|
-        unless @price_updated.include? item.id
+      line_items.each do |item|
+        unless @price_updated.include?(item.id)
           item.save if item.valid? && item.changed?
-          @price_updated.push(item.id)
+          @price_updated << item.id
         end
-      }
+      end
       #line_items.all.map(&:valid?)
     end
   end
@@ -33,7 +33,8 @@ Spree::Order.class_eval do
   end
 
   def grouped_quantities
-    @service_quantities ||= line_items.select(&:service?).group_by(&:service).map{|s, items| {s.id => items.sum{|i| i.quantity} } }[0]
+    #@service_quantities ||= {}
+    line_items.select(&:service?).group_by(&:service).map{|s, items| [s.id, items.sum{|i| i.quantity}] }.to_h
     #service_line_items.group_by{|item| "#{item.variant.service}"}
   end
 

@@ -10,8 +10,6 @@ en:
   action: Action
   remove: Remove
   total_price: Total Price
-  price_discount: Price Discount
-  percent_discount: Percent Discount
   activerecord:
     attributes:
       spree/service_type:
@@ -36,6 +34,10 @@ en:
     service_field: Service Field
     service_fields: Service Fields
     add_service_field: Add Service Field
+    notified_customer: Notified Customer
+
+    price_discount: Price Discount
+    percent_discount: Percent Discount
 
     amount: Amount
     name: Name
@@ -47,6 +49,7 @@ en:
     service_types: Service Types
     send_email: Send Email
     add_one: Add One
+    selected_quantity_not_available: Selected Quantity Not Available
 
     controller:
       controller_name: Services
