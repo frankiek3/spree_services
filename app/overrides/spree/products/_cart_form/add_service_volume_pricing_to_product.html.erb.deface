@@ -1,0 +1,18 @@
+<!-- insert_after "[class='add-to-cart']" -->
+<% show_variants = (@product.has_variants? ? @product.variants : [@product.master]).select{|v| v.service? && v.volume_prices.present?} %>
+<% if @product.price > 0 and show_variants.any? %>
+  <% display_percent ||= false %>
+<div id="bulk-discount">
+  <h6><%= t(:bulk_discount) %></h6>
+  <table>
+  <% volume_prices = show_variants.map{|s| s.volume_prices.map{|v| v}}.flatten.uniq %>
+  <% volume_prices.each do |v| %>
+    <%= content_tag(:tr, {id: "vol-price-#{v.id}", style: "display: none;"}) do %>
+      <%= content_tag :td, "Any " + (v.open_ended? ? v.range : "#{v.range.to_range.begin}–#{v.range.to_range.end}") %>
+      <%= content_tag :td, Spree::Money.new(v.amount).to_s + " each", {itemprop: "price"} %>
+      <%= content_tag(:td, "%i%" % ((1.0 - v.amount / product.master.price) * 100.0).round) if display_percent %>
+    <% end %>
+  <% end %>
+  </table>
+</div>
+<% end %>

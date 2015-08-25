@@ -17,13 +17,6 @@ Deface::Override.new(:virtual_path => "spree/orders/_line_item",
                      :disabled => false)
 
 Deface::Override.new(:virtual_path => "spree/products/_cart_form",
-                     :name => "add_volume_pricing_to_product",
-                     :insert_after => "[class='add-to-cart']",
-                     :partial => "spree/products/service_volume_prices",
-                     :disabled => false)
-
-
-Deface::Override.new(:virtual_path => "spree/products/_cart_form",
                      :name => "set_max_quantity_for_product",
                      :replace => "erb[loud]:contains('number_field_tag :quantity')",
                      :text => "<% if @product.master.service.present? %><%= number_field_tag :quantity, 1, :class => 'title', :min => 1, :max => @product.master.service.limit_amount %><% else %><%= number_field_tag :quantity, 1, :class => 'title', :min => 1 %><% end %>",
